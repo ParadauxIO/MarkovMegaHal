@@ -105,8 +105,8 @@
 
     <distributionManagement>
         <repository>
-            <id>nexus</id>
-            <url>https://repo.paradaux.io/repository/maven-releases/</url>
+            <id>reposilite</id>
+            <url>https://repo.paradaux.io/releases</url>
         </repository>
     </distributionManagement>
 </project>
