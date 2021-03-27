@@ -1,8 +1,7 @@
 # MarkovMegaHal
 
-[![Version](https://img.shields.io/badge/version-1.0.0-%2327AA9F)
+![Version](https://img.shields.io/badge/version-1.0.0-%2327AA9F)
 [![Discord](https://img.shields.io/discord/583254829279739905?label=Support%20Discord%21)](https://paradaux.io/discord)
-[![Jenkins](https://img.shields.io/jenkins/build?jobUrl=https%3A%2F%2Fci.paradaux.io%2Fjob%2FMarkovMegaHal%2F)](https://ci.paradaux.io/job/MarkovMegaHal/)
 
 ## What is MegaHal
 
@@ -50,12 +49,12 @@ There are two methods to generate sentences, one with no input material, and ano
 
 The following will generate a sentence.
 ```java
-String sentence = megaHall.getSentence();
+String sentence = megaHal.getSentence();
 ```
 
 And the following is how you supply a target word:
 ```java
-String sentence = megaHall.getSentence("Hello");
+String sentence = megaHal.getSentence("Hello");
 ```
 
 You can also add material via files, provided a String uri like so:
