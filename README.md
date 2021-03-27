@@ -1,6 +1,6 @@
 # MarkovMegaHal
 
-[![Nexus](https://img.shields.io/nexus/r/io.paradaux.ai/MarkovMegaHal?color=66b3b3&label=version&nexusVersion=3&server=https%3A%2F%2Frepo.paradaux.io)](https://repo.paradaux.io/#browse/browse:maven-releases)
+[![Version](https://img.shields.io/badge/version-1.0.0-%2327AA9F)
 [![Discord](https://img.shields.io/discord/583254829279739905?label=Support%20Discord%21)](https://paradaux.io/discord)
 [![Jenkins](https://img.shields.io/jenkins/build?jobUrl=https%3A%2F%2Fci.paradaux.io%2Fjob%2FMarkovMegaHal%2F)](https://ci.paradaux.io/job/MarkovMegaHal/)
 
