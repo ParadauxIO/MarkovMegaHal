@@ -85,6 +85,7 @@ public class Quad implements Serializable {
         return this.tokens[0].hashCode() + this.tokens[1].hashCode() + this.tokens[2].hashCode() + this.tokens[3].hashCode();
     }
 
+    @Override
     @CheckReturnValue
     public boolean equals(Object paramObject) {
         if (!(paramObject instanceof Quad)) {
