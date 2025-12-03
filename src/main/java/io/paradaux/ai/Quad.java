@@ -23,8 +23,6 @@
 
 package io.paradaux.ai;
 
-import javax.annotation.CheckReturnValue;
-import javax.annotation.Nonnull;
 import java.io.Serializable;
 
 /**
@@ -33,13 +31,14 @@ import java.io.Serializable;
  *
  * @author pjm2
  * @author Rían Errity
- *
+ * <p>
  * This software is dual-licensed, allowing you to choose between the GNU
  * General Public License (GPL) and the www.jibble.org Commercial License.
  * Since the GPL may be too restrictive for use in a proprietary application,
  * a commercial license is also provided. Full license information can be found at http://www.jibble.org/licenses/
  *
- * */
+ *
+ */
 public class Quad implements Serializable {
 
     private final String[] tokens;
@@ -51,42 +50,34 @@ public class Quad implements Serializable {
     public Quad(String paramString1, String paramString2, String paramString3, String paramString4) {
         this.canStart = false;
         this.canEnd = false;
-        this.tokens = new String[] { paramString1, paramString2, paramString3, paramString4 };
+        this.tokens = new String[]{paramString1, paramString2, paramString3, paramString4};
     }
 
-    @CheckReturnValue
-    @Nonnull
     public String getToken(int paramInt) {
         return this.tokens[paramInt];
     }
 
-    @CheckReturnValue
     public void setCanStart(boolean paramBoolean) {
         this.canStart = paramBoolean;
     }
 
-    @CheckReturnValue
     public void setCanEnd(boolean paramBoolean) {
         this.canEnd = paramBoolean;
     }
 
-    @CheckReturnValue
     public boolean canStart() {
         return this.canStart;
     }
 
-    @CheckReturnValue
     public boolean canEnd() {
         return this.canEnd;
     }
 
-    @CheckReturnValue
     public int hashCode() {
         return this.tokens[0].hashCode() + this.tokens[1].hashCode() + this.tokens[2].hashCode() + this.tokens[3].hashCode();
     }
 
     @Override
-    @CheckReturnValue
     public boolean equals(Object paramObject) {
         if (!(paramObject instanceof Quad)) {
             return false;

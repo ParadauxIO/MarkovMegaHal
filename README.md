@@ -1,7 +1,6 @@
 # MarkovMegaHal
 
-![Version](https://img.shields.io/badge/version-1.0.0-%2327AA9F)
-[![Discord](https://img.shields.io/discord/583254829279739905?label=Support%20Discord%21)](https://paradaux.io/discord)
+![Version](https://img.shields.io/badge/version-1.1.0-%2327AA9F)
 
 ## What is MegaHal
 

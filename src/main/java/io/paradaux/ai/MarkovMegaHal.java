@@ -23,9 +23,6 @@
 
 package io.paradaux.ai;
 
-import javax.annotation.CheckReturnValue;
-import javax.annotation.Nonnull;
-import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -38,13 +35,14 @@ import java.util.*;
  *
  * @author pjm2
  * @author Rían Errity
- *
+ * <p>
  * This software is dual-licensed, allowing you to choose between the GNU
  * General Public License (GPL) and the www.jibble.org Commercial License.
  * Since the GPL may be too restrictive for use in a proprietary application,
  * a commercial license is also provided. Full license information can be found at http://www.jibble.org/licenses/
  *
- * */
+ *
+ */
 public class MarkovMegaHal {
 
     // These are valid chars for words. Anything else is treated as punctuation.
@@ -62,7 +60,8 @@ public class MarkovMegaHal {
 
     /**
      * MarkovMegaHal is a fork of JMegaHal maintained by Rían Errity.
-     * */
+     *
+     */
     public MarkovMegaHal() {
 
     }
@@ -71,11 +70,12 @@ public class MarkovMegaHal {
      * Adds an entire documents to the 'brain'. Useful for feeding in
      * stray theses, but be careful not to put too much in, or you may
      * run out of memory!
+     *
      * @param uri The location of the document you wish to add.
      */
     public void addDocument(String uri) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(new URL(uri).openStream()));
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
 
         int ch;
 
@@ -86,7 +86,7 @@ public class MarkovMegaHal {
                 sentence = sentence.replace('\r', ' ');
                 sentence = sentence.replace('\n', ' ');
                 add(sentence);
-                buffer = new StringBuffer();
+                buffer = new StringBuilder();
             }
         }
         add(buffer.toString());
@@ -95,6 +95,7 @@ public class MarkovMegaHal {
 
     /**
      * Adds a new sentence to the 'brain.'
+     *
      * @param sentence The sentence you wish to "teach" the A.I.
      */
     public void add(String sentence) {
@@ -103,16 +104,16 @@ public class MarkovMegaHal {
         char[] chars = sentence.toCharArray();
         int i = 0;
         boolean punctuation = false;
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         while (i < chars.length) {
             char ch = chars[i];
             if ((WORD_CHARS.indexOf(ch) >= 0) == punctuation) {
                 punctuation = !punctuation;
                 String token = buffer.toString();
-                if (token.length() > 0) {
+                if (!token.isEmpty()) {
                     parts.add(token);
                 }
-                buffer = new StringBuffer();
+                buffer = new StringBuilder();
                 //i++;
                 continue;
             }
@@ -121,7 +122,7 @@ public class MarkovMegaHal {
         }
 
         String lastToken = buffer.toString();
-        if (lastToken.length() > 0) {
+        if (!lastToken.isEmpty()) {
             parts.add(lastToken);
         }
 
@@ -179,21 +180,19 @@ public class MarkovMegaHal {
 
     /**
      * Generate an ai-generated sentence.
+     *
      * @return String containing the ai-generated sentence.
      */
-    @CheckReturnValue
-    @Nonnull
     public String getSentence() {
         return getSentence(null);
     }
 
     /**
      * Generate a sentence that includes (if possible) the specified word.
+     *
      * @param word The specified word you wish to generate a sentence containing
      * @return String containing the ai-generated sentence.
      */
-    @CheckReturnValue
-    @Nonnull
     public String getSentence(String word) {
         LinkedList<String> parts = new LinkedList<>();
 
@@ -232,19 +231,10 @@ public class MarkovMegaHal {
 
         StringBuilder sentence = new StringBuilder();
 
-        for (Object part : parts) {
-            String token = (String) part;
-            sentence.append(token);
+        for (String part : parts) {
+            sentence.append(part);
         }
 
         return sentence.toString();
-    }
-
-    /**
-     * For idiots who try and execute this jar directly.
-     * */
-    public static void main(String[] args) {
-        JOptionPane.showMessageDialog(new JPanel(), "This is an API. You cannot execute this JAR directly.", "Illegal Action",
-                JOptionPane.WARNING_MESSAGE);
     }
 }
